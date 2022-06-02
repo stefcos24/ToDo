@@ -6,6 +6,11 @@ from flask_login import UserMixin
 from datetime import datetime
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+    
+
 class User(db.Model, UserMixin):
 
     __tablename__ = 'users'

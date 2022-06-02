@@ -43,7 +43,7 @@ def login():
 
             next = request.args.get('next')
 
-            if next == None or not next[0] = '/':
+            if next == None or not next[0] == '/':
                 next = url_for('core.index')
             
             return redirect(next)
@@ -56,4 +56,3 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('core.index'))
-    

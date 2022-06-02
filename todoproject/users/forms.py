@@ -1,8 +1,3 @@
-from ast import Sub
-from calendar import day_abbr
-import imp
-from tokenize import String
-from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField, PasswordField, ValidationError
 from wtforms.validators import DataRequired, Email, EqualTo

@@ -2,7 +2,7 @@ from flask import render_template, redirect, Blueprint, request, url_for, flash
 from flask_login import login_user, logout_user
 from todoproject import db
 from todoproject.models import User, Todos
-from todoproject.users.forms import RegistrationForm, LoginForm, UpdateUserForm
+from todoproject.users.forms import RegistrationForm, LoginForm
 
 users = Blueprint('users', __name__)
 

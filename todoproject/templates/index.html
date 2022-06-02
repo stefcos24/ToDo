@@ -1,6 +1,17 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
 {% block content %}
-<div class="mt-4 p-5 text-dark rounded" style="background-color: #e9ecef">
-    <h3>Welcome to ToDo List</h3>
-</div>
+    <div class="mt-4 p-5 text-dark rounded" style="background-color: #e9ecef">
+        <h1>Todo List</h1>
+    </div>
+    <div class="container">
+        {% for todo in todo.items %}
+        <div class="card">
+            <div class="card-body">
+                <h2><a class="card-title" href="{{ url_for('todos.update_todo',todos_id=todo.id)}}">{{todo.text}}</a></h2>
+                <p>Date: {{todo.date.strftime('%Y-%m-%d')}}</p>
+                <a class="btn btn-primary" href="{{ url_for('todos.todo',todos_id=todo.id)}}">Read Todo</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -37,3 +37,15 @@ class RegistrationForm(FlaskForm):
 
 class UpdateUserForm(FlaskForm):
 
+    email = StringField('Email: ', validators=[DataRequired(), Email()])
+    username = StringField('Change username: ', validators=[DataRequired()])
+    submit = SubmitField('Register')
+
+    def check_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('This email is already taken!')
+    
+    def check_username(self, field):
+        if User.query.filter_by(username=field.data).first():
+            raise ValidationError('This username is already taken!')
+
